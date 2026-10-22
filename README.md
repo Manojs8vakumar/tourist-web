@@ -74,6 +74,40 @@ A premium, editorial-style travel website inspired by high-end luxury travel mag
 
 ---
 
+## 🚀 Cloud Deployment Guide (Vercel & Render)
+
+### 1. Frontend Deployment on Vercel
+Your Vercel dashboard: [https://vercel.com/manoj-5a47](https://vercel.com/manoj-5a47)
+
+1. Open [https://vercel.com/new](https://vercel.com/new).
+2. Choose **Import Git Repository** and select **`Manojs8vakumar/tourist-web`**.
+3. In Project Configuration:
+   - **Framework Preset**: Vite
+   - **Root Directory**: `frontend` (or leave default root, our [`vercel.json`](file:///d:/pr2/vercel.json) handles both!)
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. *(Optional)* Under **Environment Variables**, add:
+   - `VITE_GEMINI_API_KEY`: *(your Gemini key if you want live AI outside mock fallback)*
+   - `VITE_OPENWEATHER_API_KEY`: *(your OpenWeather key)*
+5. Click **Deploy**. Vercel will build and assign your live link (e.g. `https://tourist-web.vercel.app`) in ~60 seconds!
+
+---
+
+### 2. Backend Deployment on Render
+Your Render dashboard: [https://dashboard.render.com](https://dashboard.render.com)
+
+1. Open Render Dashboard and click **New +** → **Web Service**.
+2. Connect your GitHub repository **`Manojs8vakumar/tourist-web`**.
+3. Choose **Docker** runtime:
+   - **Root Directory**: `backend`
+   - **Dockerfile Path**: `Dockerfile`
+4. Set Environment Variables for your database (MySQL / PlanetScale / Aiven / Neon):
+   - `DB_USERNAME`: your remote DB user
+   - `DB_PASSWORD`: your remote DB password
+5. Click **Create Web Service**. Render builds and deploys your Java 21 Spring Boot REST API live!
+
+---
+
 ## 🛠️ How to Run Locally (VS Code, Eclipse, or 1-Click Scripts)
 
 The project can be run completely independently without Antigravity using any of the following methods:
